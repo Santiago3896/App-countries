@@ -11,9 +11,11 @@ function validate (input){
     let errors= {};
 
     if(!input.name){
-        errors.name = "El nombre es un campo necesario";
+        errors.name = "El nombre es un campo necesario"
     }
-
+    if (!input.duration){
+        errors.duration = "La duracion es un campo necesario"
+    }
     if(input.difficulty>10 || input.difficulty<1){
         errors.difficulty = "El campo tiene que ser de 1 a 10"
     } return errors
@@ -81,7 +83,7 @@ export default function CreateActivity(){
     }
     function handleSubmit(e){
         e.preventDefault();
-        if(!errors.name && !errors.difficulty){
+        if(!errors.name && !errors.difficulty && !errors.duration){
         Dispatch(postActivity(input))
         console.log(input)
         alert("Actividad creada con exito");
@@ -110,7 +112,8 @@ return(
         </div>
         <div>
         <label>DURACION en Min:</label>
-        <input type="text" value={input.duration} name="duration" onChange={e=> handleChange(e)}/>
+        <input type="text" value={input.duration} name="duration" onChange={e=> handleChange(e)}/>{errors.duration &&(<p>{errors.duration}</p>)}
+        
         </div>
         <div>
         <label>DIFICULTAD:</label>

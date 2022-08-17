@@ -15,7 +15,7 @@ import Styles from './Home.module.css'
 export default function Home(){
 const Dispatch = useDispatch();
 const AllCountries = useSelector((state=>state.countries));
-// const AllActivities = useSelector((state)=>state.activities)
+const AllActivities = useSelector((state)=>state.activities)
 
 const [orden, setOrden] = useState('')
 
@@ -31,7 +31,7 @@ const paginado = (pageNumber) => {
 
 useEffect(()=>{
     Dispatch(getCountries());
-    // Dispatch(getActivitys())
+    Dispatch(getActivitys())
 },[Dispatch])
 
 
@@ -54,11 +54,11 @@ function handleSort(e){
     setCurrentPage(1);
     setOrden(`Ordenado ${e.target.value}`)
 }
-// function handleActivities(e){
-//     e.preventDefault();
-//     Dispatch(filterByActivitys(e.target.value))
-//     setCurrentPage(1);
-// }
+function handleActivities(e){
+    e.preventDefault();
+    Dispatch(filterByActivitys(e.target.value))
+    setCurrentPage(1);
+}
 
 function handleSort2(e){
     e.preventDefault();
@@ -95,12 +95,12 @@ function handleSort2(e){
             <option value="descendente">Descendente</option>
         </select>
 
-        {/* <select onChange= {e=> handleActivities(e)}className={styles.btn}>
+        <select onChange= {e=> handleActivities(e)}className={styles.btn}>
         {  AllActivities&&AllActivities.map(e=>{
             return(
             <option value={e.name}>{e.name}</option>
        )})}
-        </select> */}
+        </select>
         <select className={styles.btn} onChange={e=> handleSort2(e)}>
             <option value="asc">Mayor Población</option>
             <option value="desc">Menor Población</option>
