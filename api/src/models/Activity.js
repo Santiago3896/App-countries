@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     difficulty: {
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
          allowNull: false,
     },
     duration: {
@@ -17,9 +17,9 @@ module.exports = (sequelize) => {
           allowNull: false,
     },
     season: {
-      type: DataTypes.ENUM ('Verano', 'Otoño', 'Invierno', 'Primavera'),
-        allowNull: false,
-      }, 
+        type: DataTypes.ENUM ('Verano', 'Otoño', 'Invierno', 'Primavera'),
+        allowNull: true,
+      },
   });
   
 };

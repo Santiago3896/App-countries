@@ -5,8 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('country', {
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4, //HASHEO
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
     },
@@ -14,29 +13,29 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    flags: {
+    img: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     continents: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     capital: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     subregion: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     area: {
-      type: DataTypes.INTEGER, // ES UN NUMERO ENTERO QUE VA DESDE UN RANGO GRANDE NEGATIVO A POSITIVO//
-      allowNull: true,
+      type: DataTypes.FLOAT, // ES UN NUMERO ENTERO QUE VA DESDE UN RANGO GRANDE NEGATIVO A POSITIVO//
+      allowNull: false,
     },
     population: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
+      type: DataTypes.FLOAT,
+      allowNull: false,
     },
   });
 };
