@@ -8,7 +8,7 @@ export default function LandingPage(){
         <div>
             <h1 className={titulo}>BIENVENIDOS A MI PAGINA DE PAISES</h1>
             <Link to="/home">
-            <button className={boton}>Ingresar a Home</button>
+            <button className={boton}>HOME</button>
             </Link>
         </div>
     )

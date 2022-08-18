@@ -6,6 +6,7 @@ import { getCountryById, clear } from "../actions";
 
 
 
+
 export default function Detail (props){
 
 const Dispatch = useDispatch();
@@ -17,6 +18,13 @@ useEffect(()=>{
         Dispatch (clear())}
 },[Dispatch])
 
+
+for(let i=0;1<countryById?.activities?.length;i++){
+    let paises = []
+     paises = countryById?.activities[i]?.name
+     console.log(paises)
+  }
+  
 
     return(
         <div>
@@ -32,6 +40,17 @@ useEffect(()=>{
             <h3>AREA: {e.area}</h3>
             </div>
         )}
+        {/* <div>
+            {
+           
+                <div>
+                    <h3>ACTIVITY:</h3>
+                </div>
+                
+                
+                }
+        </div> */}
         </div>
+        
     )
 }

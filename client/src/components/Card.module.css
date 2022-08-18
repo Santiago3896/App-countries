@@ -20,7 +20,7 @@
   .card {
     padding: -3spx;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     background-color: gray;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
   }
   h2 {
     font-weight: bold;
-    color: white;
+    color: yellow;
     text-align: center;
     margin-top: 14px;
     margin-bottom: 50px;

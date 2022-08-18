@@ -4,11 +4,10 @@ import axios from "axios";
 export function getCountries(){
     return async function(dispatch){
     var countries = await axios.get("http://localhost:3001/Countrys");
-
     return dispatch({
         type:"GET_COUNTRIES",
         payload: countries.data
-    })
+    })   
 }
 }
 export function getActivitys(){
@@ -24,7 +23,7 @@ export function getActivitys(){
 export function getCountryById(id){
     return async function (dispatch){
     var detail = await axios.get("http://localhost:3001/Countrys/" + id)
-        console.log(detail.data)
+
     return dispatch({
         type:"GET_COUNTRY_BY_ID",
         payload: detail.data

@@ -73,7 +73,7 @@ function rootReducer(state = inicialState,action){
                 }   
             case "FILTER_BY_CONTINENT":
             const allCountries = state.countries2
-            const filterContries = allCountries.filter(el=> el.continents === action.payload)
+            const filterContries = allCountries.filter(e=> e.continents === action.payload)
                 
             return{
                 ...state,
@@ -81,9 +81,7 @@ function rootReducer(state = inicialState,action){
             }
             case "FILTER_BY_ACTIVITYS":
             const allCountries1 = state.countries
-            const filterActivities = allCountries1.filter((c)=>c.activities.find((c)=>c.name===action.payload))
-            const filtradoActividades = filterActivities
-            console.log(allCountries1)
+            const filterActivities = allCountries1.filter((e)=>e.activities.find((e)=>e.name===action.payload))
             return{
                 ...state,
                 countries: filterActivities

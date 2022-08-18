@@ -36,7 +36,6 @@ export default function CreateActivity(){
         country:""
     })
     
-    console.log(input)
     useEffect(()=>{
         Dispatch(getCountries());
     },[Dispatch])
@@ -122,16 +121,6 @@ return(
             <p>{errors.difficulty}</p>
         )}
         </div>
-{/* 
-        ES UNA BOLUDEZ, MIRAR SINTAXIS DEL CHECKBOXS PARA PONER LAS 4 TEMPORADAS
-        <div>
-        <label>TEMPORADA:</label>
-        <input type="text" value={input.temporada} name="temporada" onChange={e=> handleChange(e)}/>
-        </div>
-        <div>
-            <label>TEMPORADA: </label>
-            <input type="checkbox" name="temporada" value={input.temporada}/>
-        </div> */}
         <label>Temporada:</label>
                     <label><input
                     type = "radio"
@@ -164,16 +153,16 @@ return(
             {allCountries?.map(e=>(<option name="country" value={e.name}>{e.name}</option>))}
         </select>
         </div>
-        <button type="Submit" onClick={(e)=> handleSubmit(e)}>Submit</button>
+        <button  type="Submit" onClick={(e)=> handleSubmit(e)}>Submit</button>
         </form>
         {
             input.country&&input.country.map(el=>{
                 return(
                     <div>
                 <button onClick={()=>handelDelete(el)} value={el} >X</button>
-                <p>
+                <h2>
                     {el}
-                </p>
+                </h2>
                 </div>
                 )
             })
