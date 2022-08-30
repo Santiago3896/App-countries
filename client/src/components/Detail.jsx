@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCountryById, clear } from "../actions";
+import { getCountryById, clear, deleteCountrys } from "../actions";
+import Activitys from "./Activitys";
 
 
 
@@ -19,11 +20,13 @@ useEffect(()=>{
 },[Dispatch])
 
 
-for(let i=0;1<countryById?.activities?.length;i++){
-    let paises = []
-     paises = countryById?.activities[i]?.name
-     console.log(paises)
-  }
+
+
+// for(let i=0;1<countryById?.activities?.length;i++){
+//     let paises = []
+//      paises = countryById?.activities[i]?.name
+//      console.log(paises)
+//   }
   
 
     return(
@@ -40,16 +43,18 @@ for(let i=0;1<countryById?.activities?.length;i++){
             <h3>AREA: {e.area}</h3>
             </div>
         )}
-        {/* <div>
-            {
+        <div>
+            {countryById?.map((e)=>
            
                 <div>
-                    <h3>ACTIVITY:</h3>
+                    <h3>ACTIVITY: {e.activities.map((e)=>{
+                        return <Activitys name={e.name} difficulty={e.difficulty} season={e.season} duration={e.duration}/>
+                    })}</h3>
                 </div>
                 
                 
-                }
-        </div> */}
+                )}
+        </div>
         </div>
         
     )

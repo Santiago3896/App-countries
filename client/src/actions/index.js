@@ -43,10 +43,15 @@ export function getCountryByName(name){
 export function postActivity(payload){
     return async function(dispatch){
         var createActivity= await axios.post("http://localhost:3001/activity",payload);
-        console.log(payload)
         return createActivity;
     }
 }
+
+
+
+
+
+
 export function clear (){
     return{
         type:"CLEAR"

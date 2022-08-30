@@ -42,6 +42,7 @@ function handleClick(e){
     setCurrentPage(1);
 }
 
+
 function handleFilterContinents(e){
     e.preventDefault();
     Dispatch(filterByContinent(e.target.value))
@@ -85,7 +86,7 @@ function handleSort2(e){
             <option value="Africa">Africa</option>
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>
-            <option value="Antarctica">Antarctica</option>
+            <option value="Antarctica">Antartica</option>
             <option value="Oceania">Oceania</option>
             <option value="North America">North America</option>
             <option value="South America">South America</option>
@@ -94,7 +95,6 @@ function handleSort2(e){
             <option value="asc">Ascendente</option>
             <option value="descendente">Descendente</option>
         </select>
-
         <select onChange= {e=> handleActivities(e)}className={styles.btn}>
         {  AllActivities&&AllActivities.map(e=>{
             return(

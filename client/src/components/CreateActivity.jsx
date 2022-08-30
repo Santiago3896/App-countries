@@ -11,28 +11,30 @@ function validate (input){
     let errors= {};
 
     if(!input.name){
-        errors.name = "El nombre es un campo necesario"
-    }
-    if (!input.duration){
-        errors.duration = "La duracion es un campo necesario"
+        errors.name = "El nombre es un campo obligatorio"
     }
     if(input.difficulty>10 || input.difficulty<1){
         errors.difficulty = "El campo tiene que ser de 1 a 10"
-    } return errors
+    } 
+    if(!/^[0-9]/.test(input.duration)){
+        errors.duration = "El campo tiene que ser un valor numerico"
+    }
+    return errors
 }
 
 export default function CreateActivity(){
 
     const Dispatch = useDispatch();
     const allCountries = useSelector((state=>state.countries))
+    const allActivities = useSelector((state=>state.activities))
     const history = useHistory();
     const [errors, setErrors] = useState({});
-
+        console.log(allActivities)
     const [input, setInput] = useState({
         name:"",
         duration:"",
         difficulty:"",
-        season:"",  //VER PORQUE ME CREA LA ACTIVIDAD PERO NO ME GENERA LA CONEXION CON EL PAIS. EN EL POSTAM ME LA CREA Y ADEMAS ME HACE LA CONEXION CON EL PAIS BIEN.///
+        season:"",  
         country:""
     })
     
@@ -40,7 +42,7 @@ export default function CreateActivity(){
         Dispatch(getCountries());
     },[Dispatch])
     
-
+    console.log(errors)
     function handleChange(e){
         setInput({
             ...input,
@@ -82,6 +84,9 @@ export default function CreateActivity(){
     }
     function handleSubmit(e){
         e.preventDefault();
+        const siEsta= allActivities.filter(e=>e.name === input.name)
+        if (siEsta.length>0) {
+        alert("La actividad ya se encuentra creada")}
         if(!errors.name && !errors.difficulty && !errors.duration){
         Dispatch(postActivity(input))
         console.log(input)
@@ -105,14 +110,12 @@ return(
         <div>
         <label>NOMBRE:</label>
         <input type="text" value={input.name} name="name" onChange={e=> handleChange(e)}/>
-        {errors.name &&(
-            <p>{errors.name}</p>
-        )}
+        {errors.name &&(<p>{errors.name}</p>)}
         </div>
         <div>
-        <label>DURACION en Min:</label>
-        <input type="text" value={input.duration} name="duration" onChange={e=> handleChange(e)}/>{errors.duration &&(<p>{errors.duration}</p>)}
-        
+        <label>DURACION en Hs:</label>
+        <input type="text" value={input.duration} name="duration" onChange={e=> handleChange(e)}/>
+        {errors.duration &&(<p>{errors.duration}</p>)}
         </div>
         <div>
         <label>DIFICULTAD:</label>
@@ -153,7 +156,7 @@ return(
             {allCountries?.map(e=>(<option name="country" value={e.name}>{e.name}</option>))}
         </select>
         </div>
-        <button  type="Submit" onClick={(e)=> handleSubmit(e)}>Submit</button>
+        {(!errors.name) && (!errors.difficulty) && (!errors.duration) && (<button type="Submit" onClick={(e)=> handleSubmit(e)}>Submit</button>)}
         </form>
         {
             input.country&&input.country.map(el=>{
