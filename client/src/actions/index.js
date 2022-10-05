@@ -3,7 +3,7 @@ import axios from "axios";
 
 export function getCountries(){
     return async function(dispatch){
-    var countries = await axios.get("http://localhost:3001/Countrys");
+    var countries = await axios.get("/Countrys");
     return dispatch({
         type:"GET_COUNTRIES",
         payload: countries.data
@@ -12,7 +12,7 @@ export function getCountries(){
 }
 export function getActivitys(){
     return async function(dispatch){
-    var activitys = await axios.get("http://localhost:3001/activities");
+    var activitys = await axios.get("/activities");
 
     return dispatch({
         type:"GET_ACTIVITYS",
@@ -22,7 +22,7 @@ export function getActivitys(){
 }
 export function getCountryById(id){
     return async function (dispatch){
-    var detail = await axios.get("http://localhost:3001/Countrys/" + id)
+    var detail = await axios.get("/Countrys/" + id)
 
     return dispatch({
         type:"GET_COUNTRY_BY_ID",
@@ -32,7 +32,7 @@ export function getCountryById(id){
 }
 export function getCountryByName(name){
     return async function (dispatch){
-    var searchBar = await axios.get("http://localhost:3001/Countrys?name=" + name);
+    var searchBar = await axios.get("/Countrys?name=" + name);
 
     return dispatch({
         type: "GET_COUNTRY_BY_NAME",
@@ -42,7 +42,7 @@ export function getCountryByName(name){
 }
 export function postActivity(payload){
     return async function(dispatch){
-        var createActivity= await axios.post("http://localhost:3001/activity",payload);
+        var createActivity= await axios.post("/activity",payload);
         return createActivity;
     }
 }
