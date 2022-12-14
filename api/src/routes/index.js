@@ -28,14 +28,14 @@ const getApiInfo = async() => {
 
 const createCountries = async () => {
     const todosPaises = await getApiInfo();
-
-//     todosPaises.forEach(async (e)=>{
-//         await Country.Create(
-//          {
-//           name: e.name,
-//           img: e.img,
-//           continents: e.continents,
-//           capital: e.capital,
+    
+    //     todosPaises.forEach(async (e)=>{
+        //         await Country.Create(
+            //          {
+                //           name: e.name,
+                //           img: e.img,
+                //           continents: e.continents,
+                //           capital: e.capital,
 //           subregion: e.subregion,
 //           area: e.area,
 //           population: e.population
@@ -50,11 +50,11 @@ return final
 
 
 // const getDbInfo = async () => {
-//     return await Country.findAll({
+    //     return await Country.findAll({
 //         include:{
-//             model:Activity,
-//             attributes: ["name"],
-//             through: {
+    //             model:Activity,
+    //             attributes: ["name"],
+    //             through: {
 //                 attributes: [],
 //             },
 //         }
@@ -63,16 +63,16 @@ return final
 
 
 // const getCountrysYActivitys = async()=>{
-//     const infoTotal1 = await createCountries();
-//     const dbInfo = await getDbInfo();
-//     const infoTotal2 = infoTotal1.concat(dbInfo);
-//     return infoTotal2;
+    //     const infoTotal1 = await createCountries();
+    //     const dbInfo = await getDbInfo();
+    //     const infoTotal2 = infoTotal1.concat(dbInfo);
+    //     return infoTotal2;
     
-// }
-
-
-
-router.get("/Countrys", async (req,res)=>{ // RUTA DE GET COUNTRYS Y COUNTRY PASADO POR QUERY (NAME) //
+    // }
+    
+    
+    
+    router.get("/Countrys", async (req,res)=>{ // RUTA DE GET COUNTRYS Y COUNTRY PASADO POR QUERY (NAME) //
     const name = req.query.name
     let countrysTotal = await createCountries ();
     if (name){
@@ -90,7 +90,7 @@ router.get("/Countrys", async (req,res)=>{ // RUTA DE GET COUNTRYS Y COUNTRY PAS
 router.get("/Countrys/:id", async (req,res)=>{ // RUTA DE GET COUNTRYS PASADO POR PARAMS (ID) //
     const id =req.params.id
     let countrysAll = await createCountries();
-
+    
     if(id){
         let countryId = await countrysAll.filter(e=>e.id.toLowerCase() === id.toLowerCase())
         countryId.length ? res.status(202).send(countryId) : res.status(404).send("No existe el Pais")
