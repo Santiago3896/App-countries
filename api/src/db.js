@@ -7,7 +7,7 @@ const path = require('path');
 // } = process.env;
 
 import {
-  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME,DB_PORT
+  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME
 } from "./config";
 
 let sequelize =
@@ -16,7 +16,7 @@ let sequelize =
         database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
-        port: DB_PORT,
+        port: 5432,
         username: DB_USER,
         password: DB_PASSWORD,
         pool: {
