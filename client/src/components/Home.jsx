@@ -80,7 +80,7 @@ function handleSort2(e){
         <button className={styles.btn} onClick={e=>{handleClick(e)}}>
             Refresh countrys
         </button>
-        <Link className={styles.create} to="/Activitys">Create all activity</Link>
+        <Link className={styles.create} to="/Activitys">Create activity</Link>
         <SearchBar/>
         <select className={styles.btn} onChange={e=> handleFilterContinents(e)} >    
             <option value="Africa">Africa</option>
