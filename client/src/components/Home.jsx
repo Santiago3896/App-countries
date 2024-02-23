@@ -72,7 +72,6 @@ function handleSort2(e){
 
     return(
         <div className={Styles.sf}>
-        <h1 className={styles.letra}>APP DE COUNTRIES</h1>
         <br></br>
         <Link to="/">
         <button >Volver</button>
