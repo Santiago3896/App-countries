@@ -9,7 +9,7 @@ import axios from 'axios';
 import dotenv from "dotenv";
 dotenv.config();
 
-axios.defaults.baseURL = "https://backcountries-3vbp.onrender.com";
+axios.defaults.baseURL = "https://app-countries-9ot9.onrender.com";
 
 
 ReactDOM.render(
